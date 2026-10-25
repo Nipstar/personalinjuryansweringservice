@@ -1,0 +1,43 @@
+# Call Della
+
+> An after-hours intake specialist for law firms — personal injury, criminal defense, and immigration. Voice AI built for legal intake from the first call.
+
+Della answers your firm's overnight phone, qualifies every caller, and delivers a triage-ready dossier by dawn. White-labelled per firm. Month-to-month, no setup fees.
+
+## Key Information
+
+- **What it is**: A staffing service, not a software product. Firms hire Della to cover the hours their intake team isn't there. Della is the named persona; she identifies herself by name, captures intake details, and refuses legal advice.
+- **Verticals**: Three intake flows, each tuned to that practice area's calls.
+  - **Personal Injury** — auto, trucking, premises liability, catastrophic injury, wrongful death.
+  - **Criminal Defense** — DUI, drug, assault, domestic; family calls, jail calls, bond hearings.
+  - **Immigration** — detention, deadline panic, removal proceedings, general inquiry. Natively bilingual English / Spanish.
+- **Bilingual**: Native Spanish on the immigration flow (Retell Spanish models — not auto-translation). Spanish optional on PI and criminal flows. Mandarin and Portuguese on roadmap.
+- **The problem**: Law firms spend $300K+/year on lead acquisition. 30–70% of after-hours calls (depending on vertical) hit voicemail. The first firm to pick up usually signs the case.
+- **The delivery**: Every call lands in the firm's portal as a structured dossier — summary, transcript, recording, urgency 1–5, recommended action. Webhook integrations for Filevine, CASEpeer, Lead Docket, Litify, Clio, MyCase. Available within 60 seconds of call end.
+- **Compliance**: No legal advice (hard rule, prompted in). Recording disclosure on greeting, configurable per state — two-party consent states (CA, FL, PA, IL, MD, MA, MT, NV, NH, WA) covered out of the box. 7-year retention default for criminal matters; per-firm configurable elsewhere. No solicitation language. Della never implies representation has begun.
+- **Data security**: Every recording, transcript, and dossier belongs to the firm. Data is never used to train models. AES-256-GCM at rest, TLS 1.3 in transit. SOC 2 Type II audit underway. BAA-ready for firms handling matters with PHI exposure.
+- **Disclosure**: Della identifies as an AI assistant if a caller asks directly. She does not deceive callers about being human.
+
+## Pricing
+
+- **Solo**: $329/month (300 minutes, for solo lawyers)
+- **Practice**: $598/month (600 minutes, for small and growing firms)
+- **Group**: Contact Sales (custom minutes, more than one practice area, CRM webhook)
+- Every plan includes: Della answering in the firm's name nights, weekends and holidays; the Call Della dashboard (every call as a dossier with summary, urgency score, recording and transcript); urgent-call email alerts to the attorney on call; the 7am morning brief; state recording disclosure; own Della number with forwarding and a test call.
+- Overage: $0.50 / minute. Month-to-month, cancel any time after 30 days.
+
+## Key URLs
+
+- Homepage: https://calldella.com/
+- Personal Injury: https://calldella.com/personal-injury
+- Criminal Defense: https://calldella.com/criminal-defense
+- Immigration: https://calldella.com/immigration
+- How it works: https://calldella.com/how-it-works
+- Pricing: https://calldella.com/pricing
+- Security: https://calldella.com/security
+- Privacy: https://calldella.com/privacy
+- Terms: https://calldella.com/terms
+
+## Contact
+
+Visit calldella.com to book a 30-minute demo. Email hello@calldella.com.

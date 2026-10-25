@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root, :root[data-theme="light"] {
+  --bg: #E5D9BD;
+  --paper: #F4ECD6;
+  --paper-edge: #DDCFA8;
+  --paper-deep: #CFC195;
+  --ink: #1F1A11;
+  --ink-soft: #5C4F37;
+  --ink-faint: #62553D; /* 4.5:1+ on paper and paper-edge */
+  --rule: #3D332A;
+  --rule-soft: #8B7E5E;
+  --stamp-red: #A8351A;
+  --stamp-red-soft: rgba(168, 53, 26, 0.10);
+  --stamp-green: #3D5A2C;
+  --stamp-green-soft: rgba(61, 90, 44, 0.10);
+  --stamp-mustard: #8B6B1F;
+  --stamp-mustard-soft: rgba(139, 107, 31, 0.10);
+  --stamp-blue: #2C4F7A;
+}
+
+:root[data-theme="dark"] {
+  --bg: #1A1510;
+  --paper: #231D14;
+  --paper-edge: #2C2519;
+  --paper-deep: #352D1F;
+  --ink: #E8DDC4;
+  --ink-soft: #A89978;
+  --ink-faint: #6B5D44;
+  --rule: #5C4F37;
+  --rule-soft: #3D332A;
+  --stamp-red: #D45438;
+  --stamp-red-soft: rgba(212, 84, 56, 0.14);
+  --stamp-green: #8AA66F;
+  --stamp-green-soft: rgba(138, 166, 111, 0.12);
+  --stamp-mustard: #C9994B;
+  --stamp-mustard-soft: rgba(201, 153, 75, 0.12);
+  --stamp-blue: #5E89BD;
+}
+
+@theme inline {
+  --font-serif: var(--font-newsreader);
+  --font-mono: var(--font-jetbrains-mono);
+  
+  --color-bg: var(--bg);
+  --color-paper: var(--paper);
+  --color-paper-edge: var(--paper-edge);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-rule-soft: var(--rule-soft);
+  --color-stamp-red: var(--stamp-red);
+  --color-stamp-red-soft: var(--stamp-red-soft);
+  --color-stamp-green: var(--stamp-green);
+  --color-stamp-green-soft: var(--stamp-green-soft);
+  --color-stamp-mustard: var(--stamp-mustard);
+  --color-stamp-mustard-soft: var(--stamp-mustard-soft);
+  --color-stamp-blue: var(--stamp-blue);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-newsreader), serif;
+}
+
+/* Article body typography (no typography plugin). :where() keeps specificity at zero
+   so components inside an article can override with utility classes. */
+:where(.article-body) { font-family: var(--font-newsreader), serif; color: var(--ink); }
+:where(.article-body) :where(p, li) { font-size: 17px; line-height: 1.6; }
+:where(.article-body) :where(p) { margin: 0 0 1.1em; }
+:where(.article-body) :where(h2) { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; margin: 2.4em 0 0.7em; }
+:where(.article-body) :where(h3) { font-size: 20px; font-weight: 600; line-height: 1.3; margin: 1.8em 0 0.5em; }
+:where(.article-body) :where(ul, ol) { margin: 0 0 1.2em; padding-left: 1.4em; }
+:where(.article-body) :where(ul) { list-style: disc; }
+:where(.article-body) :where(ol) { list-style: decimal; }
+:where(.article-body) :where(li) { margin: 0.35em 0; }
+:where(.article-body) :where(a) { text-decoration: underline; text-decoration-color: var(--rule-soft); text-underline-offset: 4px; }
+:where(.article-body) :where(a:hover) { text-decoration-color: var(--ink); }
+:where(.article-body) :where(strong) { font-weight: 600; }
+:where(.article-body) :where(table) { width: 100%; border-collapse: collapse; margin: 1.5em 0; font-size: 15px; }
+:where(.article-body) :where(th, td) { border: 1px solid var(--rule-soft); padding: 10px 12px; text-align: left; vertical-align: top; }
+:where(.article-body) :where(th) { background: var(--paper-edge); font-family: var(--font-jetbrains-mono), monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+:where(.article-body) :where(blockquote) { border-left: 3px solid var(--rule); padding-left: 1em; font-style: italic; color: var(--ink-soft); }
