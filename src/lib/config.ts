@@ -15,6 +15,10 @@ export const N8N_WEBHOOK_URL =
   process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL ??
   'https://auto.juxtarank.com/webhook/call-della';
 
+// A6 intake form email capture. Empty means the page shows the email fallback instead of a form.
+// Production n8n path only (/webhook/, never /webhook-test/).
+export const LEAD_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_LEAD_WEBHOOK_URL ?? '';
+
 // GHL booking widget (crm.antekautomation.com), shared by calldella.com and the feeder sites.
 export const BOOKING_URL =
   process.env.NEXT_PUBLIC_BOOKING_URL ??
