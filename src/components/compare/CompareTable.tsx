@@ -9,7 +9,7 @@ import { DEMO_MINUTES } from '@/lib/plans';
 export const CompareTable = ({ competitors, caption }: { competitors: Competitor[]; caption: string }) => (
   <div className="not-prose my-8 col-wide">
     <div className="overflow-x-auto border-[1.5px] border-[var(--rule)]">
-      <table className={`w-full ${competitors.length > 1 ? 'min-w-[960px]' : 'min-w-[560px]'} border-collapse text-left font-serif text-[14.5px] leading-[1.45] text-[var(--ink)]`}>
+      <table className={`compare-stack w-full ${competitors.length > 1 ? 'min-w-[960px]' : 'min-w-[560px]'} border-collapse text-left font-serif text-[14.5px] leading-[1.45] text-[var(--ink)]`}>
         <caption className="caption-bottom px-3 py-3 text-left font-mono text-[11px] tracking-[0.06em] text-[var(--ink-soft)]">
           {caption} Competitor facts as of {formatDate(FETCHED)}, each from the linked page on the competitor&apos;s own site. Call Della
           wrote this table.
@@ -29,9 +29,9 @@ export const CompareTable = ({ competitors, caption }: { competitors: Competitor
           {CRITERIA.map(({ key, label }) => (
             <tr key={key} className="border-t border-[var(--rule-soft)] align-top">
               <th scope="row" className="sticky left-0 bg-[var(--paper)] p-3 font-semibold min-w-[150px] border-r border-[var(--rule-soft)]">{label}</th>
-              <td className="p-3">{CALL_DELLA[key]}</td>
+              <td className="p-3" data-label="Call Della">{CALL_DELLA[key]}</td>
               {competitors.map((c) => (
-                <td key={c.slug} className="p-3">
+                <td key={c.slug} className="p-3" data-label={c.name}>
                   {c.facts[key].text}{' '}
                   <a href={c.facts[key].url} rel="nofollow noopener" title={c.facts[key].url} className="font-mono text-[10.5px] text-[var(--ink-soft)] underline underline-offset-2 whitespace-nowrap">
                     source

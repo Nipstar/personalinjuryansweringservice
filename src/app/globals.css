@@ -97,3 +97,14 @@ body {
 .feeder-main > :not(.col-wide) { margin-left: auto; margin-right: auto; }
 .feeder-main-860 > :not(.col-wide) { max-width: 860px; }
 .feeder-main-820 > :not(.col-wide) { max-width: 820px; }
+
+/* Comparison table: six columns on desktop, one card per criterion under 768px. */
+@media (max-width: 767px) {
+  .compare-stack { min-width: 0 !important; }
+  .compare-stack thead { display: none; }
+  .compare-stack tbody, .compare-stack tr, .compare-stack th, .compare-stack td { display: block; width: 100%; }
+  .compare-stack tr { border-top: 1.5px solid var(--rule); }
+  .compare-stack th[scope="row"] { position: static; min-width: 0; border-right: 0; background: var(--paper-edge); font-family: var(--font-jetbrains-mono), monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .compare-stack td { border-top: 1px solid var(--rule-soft); }
+  .compare-stack td::before { content: attr(data-label); display: block; margin-bottom: 3px; font-family: var(--font-jetbrains-mono), monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+}

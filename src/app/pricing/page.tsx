@@ -137,7 +137,7 @@ export default function Page() {
         <p>
           Price is one row of ten. The table scores Call Della and four services a PI firm is likely to be weighing on who answers, hours, intake
           depth, urgent-call handling, integrations, Spanish and contract terms. Call Della wrote it and is one of the five. Every competitor fact
-          is from that company&apos;s own site, linked and dated. On a phone the table scrolls sideways inside its frame.
+          is from that company&apos;s own site, linked and dated. On a phone the table stacks, one criterion at a time.
         </p>
       </Prose>
       <CompareTable competitors={COMPETITORS} caption="Call Della, Smith.ai, Answering Legal, Posh and Ruby on the same ten criteria." />
