@@ -15,17 +15,17 @@ export default function TermsPage() {
       author="Call Della Legal"
       date="1 MAY 2026"
       datePublished="2026-05-01"
-      dateModified="2026-05-01"
+      dateModified="2026-10-25"
       tldr={
         <>
-          <p className="mb-2">These Terms of Service govern your use of the Call Della AI intake platform.</p>
+          <p className="mb-2">These Terms of Service govern your use of the Della intake service, provided by Call Della, and of this website, personalinjuryansweringservice.com, which Call Della publishes.</p>
           <p className="m-0">By using our service, you acknowledge that Call Della is a technology vendor, not a law firm, and provides no legal advice to your prospective clients.</p>
         </>
       }
     >
       <h2>1. Acceptance of Terms</h2>
       <p>
-        By accessing and using Call Della ("the Service"), you accept and agree to be bound by the terms and provision of this agreement. The Service is offered subject to your acceptance without modification of all of the terms and conditions contained herein.
+        By accessing and using the Della intake service provided by Call Della ("the Service"), you accept and agree to be bound by the terms and provision of this agreement. The Service is offered subject to your acceptance without modification of all of the terms and conditions contained herein.
       </p>
 
       <h2>2. Nature of the Service</h2>
@@ -48,12 +48,17 @@ export default function TermsPage() {
         <li>Providing appropriate disclosures to callers regarding the use of AI, as required by your state bar.</li>
       </ul>
 
-      <h2>4. Intellectual Property</h2>
+      <h2>4. Plans and Billing</h2>
+      <p>
+        Plans, prices, included minutes and the overage rate are published on the pricing page and in your order. Plans are month-to-month with no setup fee.
+      </p>
+
+      <h2>5. Intellectual Property</h2>
       <p>
         The Service and its original content, features, and functionality are owned by Call Della and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws. 
       </p>
 
-      <h2>5. Limitation of Liability</h2>
+      <h2>6. Limitation of Liability</h2>
       <p>
         In no event shall Call Della, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the Service.
       </p>
@@ -61,12 +66,12 @@ export default function TermsPage() {
         Specifically, Call Della assumes no liability for missed statutory deadlines or spoliation of evidence resulting from inaccuracies in the automated transcription or summary generation.
       </p>
 
-      <h2>6. Termination</h2>
+      <h2>7. Termination</h2>
       <p>
         We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
       </p>
 
-      <h2>7. Changes</h2>
+      <h2>8. Changes</h2>
       <p>
         We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will provide at least 30 days' notice prior to any new terms taking effect for existing customers.
       </p>

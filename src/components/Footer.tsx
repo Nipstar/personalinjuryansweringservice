@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CONTACT_EMAIL } from "@/lib/config";
 import { CATEGORY_DEFINITION } from "@/lib/plans";
 import { SITE } from "@/lib/site";
+import { calldella } from "@/lib/utm";
 
 type Col = { title: string; links: { href: string; label: string }[] };
 
@@ -25,7 +26,7 @@ const linkClass =
 
 export const Footer = () => (
   <footer className="px-4 md:px-8 pt-[60px] pb-8 border-t border-[var(--rule)]">
-    <div className="max-w-[1180px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr_1fr] gap-x-6 gap-y-10">
+    <div className="max-w-[1180px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-x-6 gap-y-10">
       <div className="col-span-2 md:col-span-3 lg:col-span-1">
         <Link href="/" className="block no-underline">
           <div className="text-[22px] font-semibold text-[var(--ink)] font-serif tracking-tight leading-none">call della</div>
@@ -49,7 +50,9 @@ export const Footer = () => (
     </div>
     <div className="max-w-[1180px] mx-auto mt-10 pt-5 border-t border-[var(--rule-soft)] text-center text-[10px] text-[var(--ink-soft)] font-mono tracking-[0.18em]">
       © 2026 CALL DELLA · ALL RIGHTS RESERVED · DELLA IS MADE BY{' '}
-      <a href="https://www.antekautomation.com" className="text-[var(--ink-soft)] underline decoration-[var(--rule-soft)] underline-offset-4 hover:text-[var(--ink)]">ANTEK AUTOMATION</a>
+      <a href="https://www.antekautomation.com" className="text-[var(--ink-soft)] underline decoration-[var(--rule-soft)] underline-offset-4 hover:text-[var(--ink)]">ANTEK AUTOMATION</a>{' '}
+      ·{' '}
+      <a href={calldella("/", "footer", "made-by-line")} className="text-[var(--ink-soft)] underline decoration-[var(--rule-soft)] underline-offset-4 hover:text-[var(--ink)]">CALLDELLA.COM</a>
     </div>
   </footer>
 );

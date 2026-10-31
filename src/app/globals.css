@@ -84,3 +84,11 @@ body {
 :where(.article-body) :where(th, td) { border: 1px solid var(--rule-soft); padding: 10px 12px; text-align: left; vertical-align: top; }
 :where(.article-body) :where(th) { background: var(--paper-edge); font-family: var(--font-jetbrains-mono), monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
 :where(.article-body) :where(blockquote) { border-left: 3px solid var(--rule); padding-left: 1em; font-style: italic; color: var(--ink-soft); }
+
+/* Calculator sliders: 48px touch target, ink track and thumb. */
+.calc-slider { -webkit-appearance: none; appearance: none; height: 48px; background: transparent; cursor: pointer; }
+.calc-slider::-webkit-slider-runnable-track { height: 4px; background: var(--rule); }
+.calc-slider::-moz-range-track { height: 4px; background: var(--rule); }
+.calc-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; margin-top: -10px; border-radius: 50%; background: var(--ink); border: 3px solid var(--paper); box-shadow: 0 0 0 1.5px var(--ink); }
+.calc-slider::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: var(--ink); border: 3px solid var(--paper); box-shadow: 0 0 0 1.5px var(--ink); }
+.calc-slider:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }

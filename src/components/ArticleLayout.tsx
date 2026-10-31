@@ -8,6 +8,7 @@ import { Eyebrow } from './Typography';
 import { JsonLd } from './JsonLd';
 import { graph, articleNode, collectionNode, type Citation } from '@/lib/schema';
 import { PAGES, formatDate } from '@/data/pages';
+import { calldella } from '@/lib/utm';
 
 type Props = {
   eyebrow: string;
@@ -78,7 +79,7 @@ export const ArticleLayout = ({
       <PaperTexture />
       <div className="relative z-20 flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow px-4 md:px-8 py-24 max-w-[800px] mx-auto w-full">
+        <main className="flex-grow px-4 md:px-8 pt-12 md:pt-16 pb-24 max-w-[800px] mx-auto w-full">
           {breadcrumbs && breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
           <Eyebrow>{eyebrow}</Eyebrow>
           <h1 className="text-[36px] md:text-[48px] font-semibold text-[var(--ink)] font-serif tracking-[-0.03em] leading-[1.05] mt-4 mb-6">
@@ -86,7 +87,11 @@ export const ArticleLayout = ({
           </h1>
           <div className="flex flex-wrap gap-4 items-center border-y border-[var(--rule-soft)] py-3 mb-10 text-[11px] font-mono text-[var(--ink-soft)] uppercase tracking-[0.1em]">
             <span>
-              BY <a href="/about/andy-norman" className="no-underline hover:underline">{author}</a>, FOUNDER, CALL DELLA
+              {author === 'Andy Norman' ? (
+                <>BY <a href={calldella('/about/andy-norman', (slug ?? '/').slice(1) || 'home', 'byline')} className="no-underline hover:underline">{author}</a>, FOUNDER, CALL DELLA</>
+              ) : (
+                <>BY {author}</>
+              )}
             </span>
             <span aria-hidden="true">·</span>
             <span>

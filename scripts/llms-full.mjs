@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 const OUT = 'out';
-const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://calldella.com';
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://personalinjuryansweringservice.com';
 
 const htmlFiles = (dir) =>
   readdirSync(dir).flatMap((f) => {
@@ -42,7 +42,7 @@ const pages = htmlFiles(OUT)
   .sort((a, b) => a.path.localeCompare(b.path));
 
 const body =
-  `# Call Della: full site text\n\nGenerated at build from ${pages.length} pages. Source: ${SITE}\n\n` +
+  `# personalinjuryansweringservice.com (by Call Della): full site text\n\nGenerated at build from ${pages.length} pages. Source: ${SITE}\n\n` +
   pages.map((p) => `---\n\n# ${p.title}\nURL: ${SITE}${p.path === '/' ? '' : p.path}\n\n${p.text}\n`).join('\n');
 
 writeFileSync(join(OUT, 'llms-full.txt'), body);
