@@ -92,3 +92,8 @@ body {
 .calc-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; margin-top: -10px; border-radius: 50%; background: var(--ink); border: 3px solid var(--paper); box-shadow: 0 0 0 1.5px var(--ink); }
 .calc-slider::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: var(--ink); border: 3px solid var(--paper); box-shadow: 0 0 0 1.5px var(--ink); }
 .calc-slider:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* Service pages: the hero spans the full column, everything else stays article width. */
+.feeder-main > :not(.col-wide) { margin-left: auto; margin-right: auto; }
+.feeder-main-860 > :not(.col-wide) { max-width: 860px; }
+.feeder-main-820 > :not(.col-wide) { max-width: 820px; }

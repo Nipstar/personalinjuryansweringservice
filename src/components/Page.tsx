@@ -6,9 +6,12 @@ import { Footer } from './Footer';
 import { PaperTexture } from './PaperTexture';
 import { Breadcrumbs } from './Breadcrumbs';
 import { CTAButton } from './CTAButton';
+import { Eyebrow, Body } from './Typography';
+import { DossierMockup } from './DossierMockup';
 import { JsonLd } from './JsonLd';
 import { Table } from './Prose';
 import { page, formatDate } from '@/data/pages';
+import { DEMO_MINUTES } from '@/lib/plans';
 import { graph, serviceNode, type Citation } from '@/lib/schema';
 
 export const campaign = (slug: string) => (slug === '/' ? 'home' : slug.replace(/^\//, '').replace(/\//g, '-'));
@@ -33,7 +36,7 @@ export const ServiceLayout = ({
       <PaperTexture />
       <div className="relative z-20 flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow px-4 md:px-8 pt-12 md:pt-20 pb-16 max-w-[820px] mx-auto w-full">
+        <main className="flex-grow px-4 md:px-8 pt-10 pb-16 max-w-[1180px] mx-auto w-full feeder-main feeder-main-820">
           {crumb && <Breadcrumbs items={[{ name: crumb, href: slug }]} />}
           {children}
         </main>
@@ -43,16 +46,28 @@ export const ServiceLayout = ({
   );
 };
 
+const HERO_DOSSIER = {
+  intakeId: 'SAMPLE-0001',
+  timestamp: 'SAMPLE · TUESDAY · 9:42 PM',
+  callerName: 'Test Caller A',
+  duration: '6M 05S',
+  agentTag: 'DELLA',
+  matterLine: 'RE: REAR-END COLLISION · URGENCY 4 OF 5',
+  quote: 'Neck and back pain, ER visit the same night. Other driver at fault, police report filed. Other driver’s insurer named. Callback number captured.',
+  actionLine: 'Sample brief with a test caller. Call back first thing: treatment started, fault clear.',
+};
+
+// Same shape as calldella.com's HomeHero: copy left, sample dossier right, one column under md.
 export const Hero = ({
   slug,
-  eyebrow,
+  eyebrow = 'After-hours intake specialist',
   h1,
   sub,
   trust,
   secondary = { href: '#dossier', label: 'See the dossier' },
 }: {
   slug: string;
-  eyebrow: string;
+  eyebrow?: string;
   h1: string;
   sub: string;
   trust?: string;
@@ -60,27 +75,40 @@ export const Hero = ({
 }) => {
   const entry = page(slug);
   return (
-    <section className="mb-10">
-      <div className="text-[11px] font-bold text-[var(--ink-soft)] tracking-[0.22em] font-mono uppercase mb-[14px]">{eyebrow}</div>
-      <h1 className="text-[38px] md:text-[56px] font-semibold text-[var(--ink)] font-serif tracking-[-0.03em] leading-[1.04] m-0">{h1}</h1>
-      <p className="font-serif text-[19px] md:text-[21px] leading-[1.5] text-[var(--ink)] mt-6 mb-8 max-w-[640px]">{sub}</p>
-      <div className="flex flex-wrap items-center gap-4">
-        <CTAButton primary large>Book a demo</CTAButton>
-        <a
-          href={secondary.href}
-          className="inline-flex items-center min-h-[48px] px-6 font-mono uppercase font-bold tracking-[0.14em] text-[13px] border-[1.5px] border-[var(--ink)] text-[var(--ink)] no-underline"
-        >
-          {secondary.label}
-        </a>
+    <section className="col-wide pt-4 md:pt-8 pb-12 md:pb-16">
+      <div className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-12 md:gap-16 items-center">
+        <div>
+          <Eyebrow>{eyebrow}</Eyebrow>
+          <h1 className="text-[36px] md:text-[54px] font-semibold text-[var(--ink)] font-serif tracking-[-0.03em] leading-[1.05] m-0">{h1}</h1>
+          <div className="mt-7 max-w-[540px]">
+            <Body size={18}>{sub}</Body>
+          </div>
+          <div className="mt-9 flex flex-wrap gap-4">
+            <CTAButton primary large>Book a demo</CTAButton>
+            <a
+              href={secondary.href}
+              className="inline-flex items-center min-h-[48px] px-6 font-mono uppercase font-bold tracking-[0.14em] text-[13px] border-[1.5px] border-[var(--ink)] text-[var(--ink)] !no-underline"
+            >
+              {secondary.label}
+            </a>
+          </div>
+          <p className="mt-4 !text-[12px] text-[var(--ink-soft)] font-mono tracking-[0.08em] !m-0 !mt-4">
+            {trust ?? `The demo takes ${DEMO_MINUTES} minutes: a live Della call for your practice area.`}
+          </p>
+          <p className="!text-[11px] text-[var(--ink-faint)] font-mono uppercase tracking-[0.1em] !m-0 !mt-2">
+            Last updated <time dateTime={entry.dateModified}>{formatDate(entry.dateModified)}</time>
+          </p>
+        </div>
+        <figure className="m-0">
+          <DossierMockup variant="hero" data={HERO_DOSSIER} />
+          <figcaption className="mt-3 text-[10px] text-[var(--ink-faint)] font-mono tracking-[0.14em] uppercase text-center">
+            Sample dossier. A test caller, not a real one.
+          </figcaption>
+        </figure>
       </div>
-      {trust && <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink-soft)]">{trust}</p>}
-      <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink-soft)]">
-        Last updated <time dateTime={entry.dateModified}>{formatDate(entry.dateModified)}</time>
-      </p>
     </section>
   );
 };
-
 export const Source = ({ src }: { src: Citation }) => (
   <>
     {' '}(<a href={src.url} rel="noopener">{src.publisher}{src.year ? `, ${src.year}` : ''}</a>)

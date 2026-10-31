@@ -8,14 +8,13 @@ export const SITE = {
   name: 'Personal Injury Answering Service',
   domain: 'personalinjuryansweringservice.com',
   // Small line under the logo.
-  tagline: 'BY CALL DELLA · PI INTAKE',
+  tagline: 'EST. 2026 · PI INTAKE',
   // Main navigation (desktop row and mobile drawer).
   nav: [
     { href: '/personal-injury-intake', label: 'PI intake' },
     { href: '/mass-tort-intake', label: 'Mass tort' },
     { href: '/pricing', label: 'Pricing' },
     { href: '/intake-form', label: 'Intake form' },
-    { href: '/about', label: 'About' },
   ] as NavLink[],
   // Optional "Guides" dropdown.
   guides: [] as NavLink[],

@@ -3,6 +3,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { PaperTexture } from '@/components/PaperTexture';
 import { CTAButton } from '@/components/CTAButton';
+import { Hero } from '@/components/Page';
 import { FAQ } from '@/components/FAQ';
 import { JsonLd } from '@/components/JsonLd';
 import { Prose, Table, SRC } from '@/components/Prose';
@@ -76,28 +77,14 @@ export default function Home() {
       <PaperTexture />
       <div className="relative z-20 flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow px-4 md:px-8 pt-12 md:pt-20 pb-16 max-w-[820px] mx-auto w-full">
-          <section>
-            <div className="text-[11px] font-bold text-[var(--ink-soft)] tracking-[0.22em] font-mono uppercase mb-[14px]">For personal injury law firms</div>
-            <h1 className="text-[38px] md:text-[56px] font-semibold text-[var(--ink)] font-serif tracking-[-0.03em] leading-[1.04] m-0">
-              Personal injury answering service for law firms
-            </h1>
-            <p className="font-serif text-[19px] md:text-[21px] leading-[1.5] text-[var(--ink)] mt-6 mb-8 max-w-[640px]">
-              Della takes the overnight calls. You take the morning. Every after-hours injury caller is answered, qualified and on your desk by dawn.
-            </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <CTAButton primary large>Book a demo</CTAButton>
-              <a href="#dossier" className="inline-flex items-center min-h-[48px] px-6 font-mono uppercase font-bold tracking-[0.14em] text-[13px] border-[1.5px] border-[var(--ink)] text-[var(--ink)] no-underline">
-                See the dossier
-              </a>
-            </div>
-            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink-soft)]">
-              Built for personal injury intake from the first call · Never gives legal advice · Month-to-month
-            </p>
-            <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink-soft)]">
-              Last updated <time dateTime={p.dateModified}>{formatDate(p.dateModified)}</time>
-            </p>
-          </section>
+        <main className="flex-grow px-4 md:px-8 pt-10 pb-16 max-w-[1180px] mx-auto w-full feeder-main feeder-main-820">
+          <Hero
+            slug="/"
+            eyebrow="For personal injury law firms"
+            h1="Personal injury answering service for law firms"
+            sub="Della takes the overnight calls. You take the morning. Every after-hours injury caller is answered, qualified and on your desk by dawn."
+            trust="Built for personal injury intake from the first call. Never gives legal advice. Month-to-month."
+          />
 
           <Prose>
             <h2>What is a personal injury answering service?</h2>
