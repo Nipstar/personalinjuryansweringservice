@@ -7,7 +7,17 @@ const TURNSTILE_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
-export const ContactForm = () => {
+// `compact` keeps name, email and firm only (the PI template request). `intent` tags the
+// payload so n8n can route it; the full form sends 'contact'.
+export const ContactForm = ({
+  intent = 'contact',
+  compact = false,
+  submitLabel = 'Send message',
+}: {
+  intent?: string;
+  compact?: boolean;
+  submitLabel?: string;
+}) => {
   const [status, setStatus] = useState<Status>('idle');
   const [errorMsg, setErrorMsg] = useState<string>('');
 
@@ -39,11 +49,12 @@ export const ContactForm = () => {
     }
 
     const payload = {
+      intent,
       name: data.get('name'),
       email: data.get('email'),
       firm: data.get('firm'),
       phone: data.get('phone') || null,
-      practiceArea: data.get('practiceArea'),
+      practiceArea: data.get('practiceArea') || null,
       firmSize: data.get('firmSize') || null,
       message: data.get('message') || null,
       submittedAt: new Date().toISOString(),
@@ -113,16 +124,19 @@ export const ContactForm = () => {
           <label htmlFor="firm" className={labelClass}>Firm name *</label>
           <input id="firm" name="firm" type="text" required autoComplete="organization" className={fieldClass} />
         </div>
-        <div>
-          <label htmlFor="phone" className={labelClass}>Phone (optional)</label>
-          <input id="phone" name="phone" type="tel" autoComplete="tel" className={fieldClass} />
-        </div>
+        {!compact && (
+          <div>
+            <label htmlFor="phone" className={labelClass}>Phone (optional)</label>
+            <input id="phone" name="phone" type="tel" autoComplete="tel" className={fieldClass} />
+          </div>
+        )}
       </div>
 
+      {!compact && (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
           <label htmlFor="practiceArea" className={labelClass}>Practice area *</label>
-          <select id="practiceArea" name="practiceArea" required defaultValue="" className={fieldClass}>
+          <select id="practiceArea" name="practiceArea" required={!compact} defaultValue="" className={fieldClass}>
             <option value="" disabled>Select one…</option>
             <option value="personal-injury">Personal Injury</option>
             <option value="criminal-defense">Criminal Defense</option>
@@ -143,7 +157,9 @@ export const ContactForm = () => {
           </select>
         </div>
       </div>
+      )}
 
+      {!compact && (
       <div>
         <label htmlFor="message" className={labelClass}>What are you hoping to solve? (optional)</label>
         <textarea
@@ -154,6 +170,7 @@ export const ContactForm = () => {
           placeholder="After-hours call volume, practice areas, what happens to calls now. Whatever helps us prepare."
         />
       </div>
+      )}
 
       <div className="cf-turnstile min-h-[65px]" data-sitekey={TURNSTILE_SITE_KEY} data-theme="light" data-size="flexible" />
 
@@ -168,7 +185,7 @@ export const ContactForm = () => {
         disabled={status === 'submitting'}
         className="mt-2 inline-flex items-center justify-center gap-2.5 px-6 py-[14px] bg-[var(--ink)] text-[var(--paper)] border-[1.5px] border-[var(--ink)] text-[13px] font-bold tracking-[0.14em] font-mono uppercase cursor-pointer transition-all duration-150 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_var(--rule)] disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-x-0 disabled:translate-y-0 disabled:shadow-none"
       >
-        {status === 'submitting' ? 'Sending…' : 'Send message'}
+        {status === 'submitting' ? 'Sending…' : submitLabel}
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <line x1="5" y1="12" x2="19" y2="12" />
           <polyline points="12 5 19 12 12 19" />

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { FAQ } from '@/components/FAQ';
 import { CTAButton } from '@/components/CTAButton';
+import { ContactForm } from '@/components/sections/ContactForm';
 import { SampleDossier } from '@/components/SampleDossier';
 import { Prose, Table, Sources, SRC } from '@/components/Prose';
 import { ServiceLayout, Hero, Source } from '@/components/Page';
@@ -99,12 +100,16 @@ export default function Page() {
 
       <Prose>
         <h2>Get the editable personal injury intake form template</h2>
-        {/* shortcut: email fallback only (the brief's empty-webhook state); build the email form (email, firm, page, Turnstile token) when LEAD_WEBHOOK_URL is set. */}
         <p>
-          Email <a href={`mailto:${CONTACT_EMAIL}?subject=PI%20intake%20form%20template`}>{CONTACT_EMAIL}</a> and we will send the editable
-          template as a document you can change.
+          Leave your name, work email and firm and we will send the template as a document you can change. If you would rather email,{' '}
+          <a href={`mailto:${CONTACT_EMAIL}?subject=PI%20intake%20form%20template`}>{CONTACT_EMAIL}</a> works too.
         </p>
-        <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--ink-soft)]">
+      </Prose>
+      <div id="template" className="scroll-mt-24">
+        <ContactForm intent="pi-intake-form-template" compact submitLabel="Send me the template" />
+      </div>
+      <Prose>
+        <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--ink-soft)] mt-4">
           Privacy: we use your email to send the template and, if you ask, to arrange a demo. Nothing else.
         </p>
 

@@ -10,7 +10,10 @@ const cols: Col[] = [
   ...SITE.footer.map((f) => ({ title: f.heading, links: f.links })),
   {
     title: "Contact",
-    links: [{ href: `mailto:${CONTACT_EMAIL}`, label: CONTACT_EMAIL }],
+    links: [
+      { href: "/contact", label: "Contact form" },
+      { href: `mailto:${CONTACT_EMAIL}`, label: CONTACT_EMAIL },
+    ],
   },
   {
     title: "Legal",
